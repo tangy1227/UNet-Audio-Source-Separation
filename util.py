@@ -161,9 +161,9 @@ class utility():
         return db_spec_tensor
     
 if __name__ == "__main__":
-    path = "/home/ytang363/7100_spr2023/model/20230424-16_ep-500_b-16.pt"
+    path = "/home/ytang363/7100_spr2023/model/20230418-05_ep-600_b-8.pt"
     util = utility()
-    stem_names = ['drums', 'bass', 'other', 'vocals']
+    stem_names = ['vocals','accompaniment'] #['drums', 'bass', 'other', 'vocals']
     model = util.load_model(modelPath=path, stem_names=stem_names)
     sdr = util.cal_SDR(model=model,stems=stem_names,duration=120,niter=50,shuffle=False)
     print(sdr)
