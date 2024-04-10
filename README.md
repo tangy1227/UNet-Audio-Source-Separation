@@ -1,4 +1,5 @@
 # Audio Source Separation Based on U-Net
+### [project slides](https://docs.google.com/presentation/d/1sz7kjI7p-CKNKelTpdJ9_IE-BO1JTE9s3UibCaeN2Gk/edit?usp=sharing)
 
 ## [Spleeter](https://github.com/deezer/spleeter) Baseline
 U-Net based audio source separation by Deezer
