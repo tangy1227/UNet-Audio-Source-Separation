@@ -1,5 +1,5 @@
 # Audio Source Separation Based on U-Net
-### [project slides](https://docs.google.com/presentation/d/1sz7kjI7p-CKNKelTpdJ9_IE-BO1JTE9s3UibCaeN2Gk/edit?usp=sharing)
+### [Project Slides](https://docs.google.com/presentation/d/1sz7kjI7p-CKNKelTpdJ9_IE-BO1JTE9s3UibCaeN2Gk/edit?usp=sharing)
 
 ## [Spleeter](https://github.com/deezer/spleeter) Baseline
 U-Net based audio source separation by Deezer
@@ -18,4 +18,6 @@ Experiment with different loss functions to compare their performance. Different
 
 `splitter.py` inferencing code
 
+## Project Poster
+![Poster](poster/Yilong-poster-7100_spr.jpg)
 
