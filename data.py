@@ -62,7 +62,7 @@ class musdbDataset(Dataset):
 
         return x_wav, y_target_wavs
 
-        """Open Unmix Method
+        """Open Unmix Data loading Technique
         audio_sources = []
         target_ind = None
         for k, source in enumerate(mus.setup['sources']):
@@ -111,16 +111,6 @@ if __name__ == "__main__":
     validation_loader = DataLoader(validation_dataset, batch_size=1, shuffle=True, drop_last=True)
     print(len(train_dataloader))
     print(len(validation_loader))
-    # # batch: {"instrument": Tensor[batch_size, channels, sample_len]}
-    # for batch_index, batch in enumerate(train_dataloader):
-    #     x_wav_batch, y_target_wavs_batch = batch
-    #     if batch_index == 0:
-    #         for i in range(batch_size):
-    #             # print(batch[0][i].size())
-    #             # print(batch[1]['vocals'][i].size())
-    #             print(x_wav_batch)
-    #     else:
-    #         break
 
 
     """ # Open-Unmix Dataloader

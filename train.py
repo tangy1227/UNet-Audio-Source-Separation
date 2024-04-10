@@ -261,32 +261,32 @@ def trainwSDR(
         print("loss: {}".format(last_loss))
         writer.add_scalar("Loss/train", last_loss, epoch)
 
-        # ## Validation ##
-        # model.train(False)
-        # running_vloss = 0.0
-        # last_vloss = 0
-        # for val_ind, vdata in enumerate(validation_loader):
-        #     vinputs_batch, vtarget_batch = vdata
+        ## Validation ##
+        model.train(False)
+        running_vloss = 0.0
+        last_vloss = 0
+        for val_ind, vdata in enumerate(validation_loader):
+            vinputs_batch, vtarget_batch = vdata
 
-        #     for i in range(batch_size_val):
-        #         vinputs = vinputs_batch[i].to(device)
-        #         voutputs = model(vinputs)
-        #         stem_val = []
+            for i in range(batch_size_val):
+                vinputs = vinputs_batch[i].to(device)
+                voutputs = model(vinputs)
+                stem_val = []
 
-        #         for name, masked_stft in voutputs.items():
-        #             y_target_wav = vtarget_batch[name][i].to(device)
-        #             target_stft, _ = model.compute_stft(y_target_wav.squeeze())
-        #             vloss = torch.nn.functional.mse_loss(masked_stft, target_stft)
-        #             stem_val.append(vloss)
+                for name, masked_stft in voutputs.items():
+                    y_target_wav = vtarget_batch[name][i].to(device)
+                    target_stft, _ = model.compute_stft(y_target_wav.squeeze())
+                    vloss = torch.nn.functional.mse_loss(masked_stft, target_stft)
+                    stem_val.append(vloss)
 
-        #         total_vloss = (torch.sum(torch.stack(stem_val)) / stem_number)
-        #         running_vloss += total_vloss
+                total_vloss = (torch.sum(torch.stack(stem_val)) / stem_number)
+                running_vloss += total_vloss
         
-        # last_vloss = running_vloss / (len(validation_loader) * batch_size_val)
-        # print("val loss: {}".format(last_vloss))
-        # # scheduler.step(last_vloss)
-        # # scheduler.step()
-        # val_writer.add_scalar("Val/train", last_vloss, epoch)
+        last_vloss = running_vloss / (len(validation_loader) * batch_size_val)
+        print("val loss: {}".format(last_vloss))
+        # scheduler.step(last_vloss)
+        # scheduler.step()
+        val_writer.add_scalar("Val/train", last_vloss, epoch)
 
         ## Calculate SDR ##
         util = utility()
